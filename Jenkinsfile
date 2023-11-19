@@ -22,7 +22,15 @@ pipeline {
                 }
             }
         }
-
+   stage('SonarQube - SAST') {
+      steps {
+sh "mvn sonar:sonar \
+  -Dsonar.projectKey=java-sample-app \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=2aec4b99997e3500385c6578b5b73a523e6e438d"
+      }
+   }
+        
         stage('Build Docker Image') {
             steps {
                 script {
