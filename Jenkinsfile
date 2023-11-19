@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/mahesh430/sample-java-application.git'
+                git branch: 'main', url: 'https://github.com/mahesh430/sample-java-application.git'
             }
         }
 
