@@ -24,7 +24,7 @@ pipeline {
         }
    stage('SonarQube - SAST') {
       steps {
-sh "mvn sonar:sonar -Dsonar.projectKey=sample-java-app -Dsonar.host.url=http://localhost:9000 -Dsonar.login=249f98a4cba27cd8723ab3c17913ef5a0bed6598"
+sh "mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.118.115.177:9000 -Dsonar.login=5e0e4bffaa2c80ef0cf2cd208197d5afe3d04be3"
       }
    }
         
