@@ -45,11 +45,11 @@ pipeline {
 
     }
 
-    // post {
-    //     always {
-    //         // Clean up Docker images
-    //         sh "docker rmi ${IMAGE_TAG}"
-    //     }
-    // }
+    post {
+        always {
+            // Clean up Docker images
+            sh "docker rmi ${IMAGE_TAG}"
+        }
+    }
 }
 
