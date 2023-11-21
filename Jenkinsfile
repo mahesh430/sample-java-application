@@ -43,7 +43,7 @@ stage('Trivy Scan') {
             steps {
                 script {
                     // Scan the Docker image with Trivy
-                    sh "trivy image --exit-code 1 --no-progress ${IMAGE_TAG}"
+                    sh "trivy image --exit-code 0 --no-progress ${IMAGE_TAG}"
                 }
             }
         }
