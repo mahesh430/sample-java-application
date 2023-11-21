@@ -22,7 +22,14 @@ pipeline {
                 }
             }
         }
-
+  stage('SoarQube - Static Code Analysis') {
+            steps {
+                script {
+                    
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.118.115.177:9000 -Dsonar.login=7168448a52cb42b70f6b7b46d8419032bce0f406'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
