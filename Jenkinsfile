@@ -36,7 +36,14 @@ sh "mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.118.1
                 }
             }
         }
-
+stage('Trivy Scan') {
+            steps {
+                script {
+                    // Scan the Docker image with Trivy
+                    sh "trivy image --exit-code 1 --no-progress ${IMAGE_TAG}"
+                }
+            }
+        }
         stage('Push to Docker Hub') {
             steps {
                 script {
@@ -50,11 +57,11 @@ sh "mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.118.1
 
     }
 
-    // post {
-    //     always {
-    //         // Clean up Docker images
-    //         sh "docker rmi ${IMAGE_TAG}"
-    //     }
-    // }
+    post {
+        always {
+            // Clean up Docker images
+            sh "docker rmi ${IMAGE_TAG}"
+        }
+    }
 }
 
