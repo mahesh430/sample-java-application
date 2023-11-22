@@ -1,5 +1,9 @@
 pipeline {
     agent any
+parameters {
+  choice choices: ['Dev', 'Test', 'UAT', 'Prod'], description: 'Choose the stage to deploy', name: 'stage'
+  string description: 'Enter your Name ', name: 'triggred_by'
+}
 
     environment {
         // Define environment variables
