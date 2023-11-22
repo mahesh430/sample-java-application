@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Static code analysis
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.118.115.177:9000 -Dsonar.login=7168448a52cb42b70f6b7b46d8419032bce0f406'
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=java-app -Dsonar.host.url=http://18.222.25.49/:9000 -Dsonar.login=7168448a52cb42b70f6b7b46d8419032bce0f406'
                 }
             }
         }
